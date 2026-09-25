@@ -24,11 +24,21 @@ public/
     groups.json        source groups     (was DBDA_SourceGroups.html)
     assets.json         (was DBDA_Assets.html)
     source-pages.json   (was DBDA_SourcePages.html)
-functions/
-  api/submit.js       submission endpoint (replaces Code.gs backend)
+src/
+  index.js            Worker entry point — routes /api/submit, otherwise
+                       serves the static files in public/ via the ASSETS
+                       binding (replaces the Code.gs backend)
 schema.sql            D1 table definition
-wrangler.toml         Cloudflare project config
+wrangler.toml         Cloudflare project config (unified Workers + Assets)
 ```
+
+Note: this uses Cloudflare's newer **unified Workers + Static Assets** model
+(`main` + `[assets]` in wrangler.toml, deployed with `wrangler deploy`), not
+the older classic Pages model (`pages_build_output_dir` + a `functions/`
+folder). If your account's dashboard created this project as a "Workers"
+project (breadcrumb reads Workers & Pages → your project → Production, and
+the deploy command shown is `npx wrangler deploy`), this is the correct
+structure for it.
 
 ## Deploy steps
 

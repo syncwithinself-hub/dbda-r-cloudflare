@@ -1,8 +1,12 @@
 name = "dbda-r-cloudflare"
+main = "src/index.js"
 compatibility_date = "2026-09-01"
-pages_build_output_dir = "public"
+
+[assets]
+directory = "public"
+binding = "ASSETS"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "dbda-db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "690b847a-7fac-418a-89a5-92e890f06815"
